@@ -1,4 +1,4 @@
-package com.fersko.utils;
+package com.fersko.parser;
 
 import java.util.regex.Pattern;
 

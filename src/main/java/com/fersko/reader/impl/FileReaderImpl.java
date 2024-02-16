@@ -30,4 +30,6 @@ public class FileReaderImpl implements Reader {
 		}
 		return lines;
 	}
+
 }
+ 

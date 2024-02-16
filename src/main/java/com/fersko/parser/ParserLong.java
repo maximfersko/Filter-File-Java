@@ -1,9 +1,9 @@
-package com.fersko.utils;
+package com.fersko.parser;
 
 import java.util.regex.Pattern;
 
 public class ParserLong implements Parser<Long> {
-	private static final String PATTERN_INTEGER_NUMBER = "\\d+";
+	private static final String PATTERN_INTEGER_NUMBER = "-?\\d+";
 
 	@Override
 	public Long parse(String elm) {

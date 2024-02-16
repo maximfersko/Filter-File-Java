@@ -1,7 +1,7 @@
 package com.fersko.writer;
 
-import java.util.List;
+import com.fersko.storage.BaseTypeStorage;
 
 public interface Writer {
-	void writeLines(String filePath, List<?> storage, boolean rewrite);
+	void writeLines(String filePath, BaseTypeStorage<?> storage, boolean rewrite);
 }

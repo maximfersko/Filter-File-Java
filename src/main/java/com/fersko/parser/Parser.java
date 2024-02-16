@@ -1,4 +1,4 @@
-package com.fersko.utils;
+package com.fersko.parser;
 
 public interface Parser<T> {
 	T parse(String elm);

@@ -1,18 +1,24 @@
 package com.fersko.storage.impl;
 
-import com.fersko.statistics.StatisticsCollector;
+import com.fersko.statistics.StatisticsStrategy;
+import com.fersko.statistics.StatisticsUtils;
+import com.fersko.statistics.impl.StringStatisticsStrategy;
 import com.fersko.storage.BaseTypeStorage;
 
 public class StringStorage extends BaseTypeStorage<String> {
-	private final StatisticsCollector<String> statisticsCollector;
-	public StringStorage(StatisticsCollector<String> statisticsCollector) {
+
+	public StringStorage() {
 		super();
-		this.statisticsCollector = statisticsCollector;
 	}
 
 	@Override
 	public void showStatistics(boolean isFullStat) {
-		statisticsCollector.showStatistics(this,isFullStat);
+		StatisticsStrategy<String> strategy = new StringStatisticsStrategy();
+		if (isFullStat) {
+			StatisticsUtils.showStatistics(this, strategy);
+		} else {
+			StatisticsUtils.showShortStatistics(this, strategy);
+		}
 	}
 
 }

@@ -1,18 +1,24 @@
 package com.fersko.storage.impl;
 
-import com.fersko.statistics.StatisticsCollector;
+import com.fersko.statistics.StatisticsStrategy;
+import com.fersko.statistics.StatisticsUtils;
+import com.fersko.statistics.impl.LongStatisticsStrategy;
 import com.fersko.storage.BaseTypeStorage;
 
 public class LongStorage extends BaseTypeStorage<Long> {
-	private final StatisticsCollector<Long> statisticsCollector;
-	public LongStorage(StatisticsCollector<Long> statisticsCollector) {
+
+	public LongStorage() {
 		super();
-		this.statisticsCollector = statisticsCollector;
 	}
 
 	@Override
 	public void showStatistics(boolean isFullStat) {
-		statisticsCollector.showStatistics(this, isFullStat);
+		StatisticsStrategy<Long> strategy = new LongStatisticsStrategy();
+		if (isFullStat) {
+			StatisticsUtils.showStatistics(this, strategy);
+		} else {
+			StatisticsUtils.showShortStatistics(this, strategy);
+		}
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.fersko.statistics.utils;
+package com.fersko.statistics.consts;
 
 public class ConstsStatistics {
 

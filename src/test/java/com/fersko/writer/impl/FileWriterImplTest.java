@@ -1,6 +1,5 @@
 package com.fersko.writer.impl;
 
-import com.fersko.statistics.impl.StringStatisticsCollector;
 import com.fersko.storage.BaseTypeStorage;
 import com.fersko.storage.impl.StringStorage;
 import com.fersko.writer.Writer;
@@ -22,7 +21,7 @@ class FileWriterImplTest {
 	@BeforeEach
 	public void init() {
 		writer = new FileWriterImpl();
-		storage = new StringStorage(new StringStatisticsCollector());
+		storage = new StringStorage();
 		storage.add("Hello world!");
 	}
 

@@ -1,18 +1,24 @@
 package com.fersko.storage.impl;
 
-import com.fersko.statistics.StatisticsCollector;
+import com.fersko.statistics.StatisticsStrategy;
+import com.fersko.statistics.StatisticsUtils;
+import com.fersko.statistics.impl.DoubleStatisticsStrategy;
 import com.fersko.storage.BaseTypeStorage;
 
 public class DoubleStorage extends BaseTypeStorage<Double> {
-	private final StatisticsCollector<Double> statisticsCollector;
-	public DoubleStorage( StatisticsCollector<Double> statisticsCollector) {
+
+	public DoubleStorage() {
 		super();
-		this.statisticsCollector = statisticsCollector;
 	}
 
 	@Override
 	public void showStatistics(boolean isFullStat) {
-		statisticsCollector.showStatistics(this, isFullStat);
+		StatisticsStrategy<Double> strategy = new DoubleStatisticsStrategy();
+		if (isFullStat) {
+			StatisticsUtils.showStatistics(this, strategy);
+		} else {
+			StatisticsUtils.showShortStatistics(this, strategy);
+		}
 	}
 
 }

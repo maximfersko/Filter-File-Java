@@ -2,9 +2,11 @@ package com.fersko;
 
 import com.beust.jcommander.JCommander;
 import com.fersko.args.ArgsHandler;
-import com.fersko.parser.Runner;
+import com.fersko.model.FilterDataProcessor;
+import lombok.extern.slf4j.Slf4j;
 
 
+@Slf4j
 public class Main {
 	public static void main(String[] args) {
 		ArgsHandler argsHandler = new ArgsHandler();
@@ -13,11 +15,12 @@ public class Main {
 		try {
 			jCommander.parse(args);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			log.error(e.getMessage());
 		}
 
-		Runner runner = new Runner(argsHandler);
+		FilterDataProcessor runner = new FilterDataProcessor(argsHandler);
 		runner.extractToStorage();
 		runner.printStatistics();
+		runner.writeDataToFile();
 	}
 }

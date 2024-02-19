@@ -21,9 +21,8 @@ public class FileWriterImpl implements Writer {
 			for (var line : storage.getData()) {
 				fileWriter.write(line + "\n");
 			}
-			fileWriter.flush();
 		} catch (IOException e) {
-			log.info(e.getMessage());
+			log.error(e.getMessage());
 		}
 	}
 

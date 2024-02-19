@@ -23,7 +23,7 @@ public class ArgsHandler {
 	@Parameter(names = { "-a" }, description = "Append data to the file instead of overwriting it")
 	private boolean addToFile = false;
 
-	@Parameter(description = "List of files to process")
+	@Parameter(description = "List of files to process", converter = TxtFileConverter.class)
 	private List<String> files = new ArrayList<>();
 }
 

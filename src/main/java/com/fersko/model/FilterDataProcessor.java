@@ -33,9 +33,15 @@ public class FilterDataProcessor {
 	}
 
 	public void printStatistics() {
-		System.out.println("\n========================  Statistics  =======================");
-		storage.showStatistics(args.isFullStat());
-		System.out.println("=============================================================\n");
+		if (!args.getFiles().isEmpty()) {
+			try {
+				System.out.println("\n========================  Statistics  =======================");
+				storage.showStatistics(args.isFullStat());
+				System.out.println("=============================================================\n");
+			} catch (Exception e) {
+				log.error("Error printing statistics: {}", e.getMessage());
+			}
+		}
 	}
 
 	public void extractToStorage() {

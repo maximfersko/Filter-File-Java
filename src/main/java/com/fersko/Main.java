@@ -15,7 +15,8 @@ public class Main {
 		try {
 			jCommander.parse(args);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error("Error parsing command line arguments: {}", e.getMessage());
+			jCommander.usage();
 		}
 
 		FilterDataProcessor runner = new FilterDataProcessor(argsHandler);
